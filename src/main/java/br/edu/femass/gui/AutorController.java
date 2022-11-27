@@ -4,19 +4,19 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import br.edu.femass.dao.Dao;
 import br.edu.femass.dao.DaoAutor;
 import br.edu.femass.model.Autor;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
@@ -46,19 +46,82 @@ public class AutorController implements Initializable {
     @FXML
     private Button BtnGravar; 
 
+    @FXML
+    private TableView<Autor> tabelaAutor = new TableView<Autor>();
+
+    @FXML
+    private TableColumn<Autor,Long> colID = new TableColumn<>();
+
+    @FXML
+    private TableColumn<Autor,String> colNome = new TableColumn<>();
+
+    @FXML
+    private TableColumn<Autor,String> colSobrenome = new TableColumn<>();
+
+    @FXML
+    private TableColumn<Autor,String> colNacionalidade = new TableColumn<>();
+
     private DaoAutor dao = new DaoAutor();
     private Autor autor;
+    private Boolean incluindo;
 
     @FXML
     private void Gravar_Click(ActionEvent event) {
-        Autor autor = new Autor(txtNome.getText(),
-        txtSobrenome.getText(),
-        txtNacionalidade.getText());
-    
-        dao.inserir(autor);
+        autor.setNome(txtNome.getText());
+        autor.setSobrenome(txtSobrenome.getText());
+        autor.setNacionalidade(txtNacionalidade.getText());
+        if (incluindo) {
+            dao.inserir(autor);
+        } else {
+            dao.alterar(autor);
+        }
+
+        preencherLista();
+        preencherTabela();
+        editar(false);
         
     }
+
+    @FXML
+    private void incluir_click(ActionEvent event) {
+        editar(true);
+        
+        incluindo = true;
+
+        autor = new Autor();
+        txtNome.setText("");
+        txtSobrenome.setText("");
+        txtNacionalidade.setText("");
+        txtNome.requestFocus();
+
+
+    }
+
+    @FXML
+    private void alterar_click(ActionEvent event) {
+        editar(true);
+
+        incluindo = false;
+    }
+
+    @FXML
+    private void excluir_click(ActionEvent event) {
+        dao.apagar(autor);
+        preencherLista();
+        preencherTabela();
+    }
     
+    private void editar(boolean habilitar) {
+        lstAutores.setDisable(habilitar);
+        txtNome.setDisable(!habilitar);
+        txtSobrenome.setDisable(!habilitar);
+        txtNacionalidade.setDisable(!habilitar);
+        BtnGravar.setDisable(!habilitar);
+        BtnAlterar.setDisable(habilitar);
+        BtnIncluir.setDisable(habilitar);
+        BtnExcluir.setDisable(habilitar);
+    }
+
     @FXML
     private void lstAutores_KeyPressed(KeyEvent event) {
         exibirDados();
@@ -79,11 +142,39 @@ public class AutorController implements Initializable {
         txtNacionalidade.setText(autor.getNacionalidade());
     }
 
+    private void preencherLista(){
+        List<Autor> autores = dao.buscarTodos();
+
+        ObservableList<Autor> data = FXCollections.observableArrayList(autores);
+        lstAutores.setItems(data);   
+    }
+
+    private void preencherTabela(){
+        List<Autor> autores = dao.buscarTodos();
+
+        ObservableList<Autor> data = FXCollections.observableArrayList(autores);
+        tabelaAutor.setItems(data);   
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        List<Autor> autores = dao.buscarTodos();
+        colID.setCellValueFactory(
+            new PropertyValueFactory<Autor,Long>("id")
+        );
+
+        colNome.setCellValueFactory(
+            new PropertyValueFactory<Autor,String>("nome")
+        );
         
-        ObservableList<Autor> data = FXCollections.observableArrayList(autores);
-        lstAutores.setItems(data);
+        colSobrenome.setCellValueFactory(
+            new PropertyValueFactory<Autor,String>("sobrenome")
+        );
+
+        colNacionalidade.setCellValueFactory(
+            new PropertyValueFactory<Autor,String>("nacionalidade")
+        );
+
+        preencherLista();
+        preencherTabela();
     }    
 }
