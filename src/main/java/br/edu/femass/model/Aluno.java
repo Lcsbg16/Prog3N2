@@ -6,15 +6,14 @@ import javax.persistence.Entity;
 public class Aluno extends Leitor {
     
     private String matricula;
-
     public Aluno(String nome, String endereco, String telefone, String matricula) {
         super(nome, endereco, telefone);
         this.matricula = matricula;
-        this.prazoMaximoDevolucao = 15;
+        
     }
     
     public Aluno(){
-
+        this.prazoMaximoDevolucao = 15;
     }
 
     public String getMatricula() {
@@ -25,11 +24,11 @@ public class Aluno extends Leitor {
         this.matricula = matricula;
     }
 
+    
+
     @Override
     public String toString() {
         return  (this.getNome() +"    "+this.matricula);
     }
-
-    
 
 }

@@ -13,11 +13,11 @@ public class Leitor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
-
+    protected Integer prazoMaximoDevolucao;
     protected String nome;
     protected String endereco;
     protected String telefone;
-    protected Integer prazoMaximoDevolucao;
+    //protected Integer prazoMaximoDevolucao;
     
     public Leitor(String nome, String endereco, String telefone) {
         this.nome = nome;

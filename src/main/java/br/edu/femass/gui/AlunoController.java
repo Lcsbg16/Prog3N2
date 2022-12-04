@@ -82,8 +82,6 @@ public class AlunoController implements Initializable {
         txtTelefone.setText("");
         txtMatricula.setText("");
         txtNome.requestFocus();
-
-
     }
 
     @FXML

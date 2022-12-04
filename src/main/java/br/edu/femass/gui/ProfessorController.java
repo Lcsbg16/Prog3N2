@@ -12,7 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
+
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -156,7 +156,7 @@ public class ProfessorController implements Initializable {
 
     private void preencherTabela(){
         List<Professor> professores = dao.buscarTodos();
-        ObservableList<Professor> data = FXCollections.observableArrayList(professor);
+        ObservableList<Professor> data = FXCollections.observableArrayList(professores);
         tabelaProfessor.setItems(data);   
     }
 

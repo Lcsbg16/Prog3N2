@@ -87,7 +87,6 @@ public class AutorController implements Initializable {
         editar(true);
         
         incluindo = true;
-
         autor = new Autor();
         txtNome.setText("");
         txtSobrenome.setText("");
