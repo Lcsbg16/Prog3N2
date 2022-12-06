@@ -10,20 +10,37 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class TelaBibliotecarioController implements Initializable {
+public class TelaAtendenteController implements Initializable {
     
  
     @FXML
-    private void BtnCadastrarAutor_Click(ActionEvent event) {
+    private void BtnCadastrarAluno_Click(ActionEvent event) {
         try{
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Autor.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Aluno.fxml"));
         
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
         scene.getRoot().setStyle("-fx-font-family: 'serif'");
 
         Stage stage = new Stage();
-        stage.setTitle("Tela Autor");
+        stage.setTitle("Tela Aluno");
+        stage.setScene(scene);
+        stage.show();
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    @FXML
+    private void BtnCadastrarProfessor_Click(ActionEvent event) {
+        try{
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Professor.fxml"));
+        
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/styles/Styles.css");
+        scene.getRoot().setStyle("-fx-font-family: 'serif'");
+
+        Stage stage = new Stage();
+        stage.setTitle("Tela Professor");
         stage.setScene(scene);
         stage.show();
         } catch (Exception e){
@@ -31,35 +48,17 @@ public class TelaBibliotecarioController implements Initializable {
         }
     }
 
-
     @FXML
-    private void BtnCadastrarLivro_Click(ActionEvent event) {
+    private void BtnCadastrarEmprestimo_Click(ActionEvent event) {
         try{
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/Livro.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/Emprestimo.fxml"));
             
             Scene scene = new Scene(root);
             scene.getStylesheets().add("/styles/Styles.css");
             scene.getRoot().setStyle("-fx-font-family: 'serif'");
     
             Stage stage = new Stage();
-            stage.setTitle("Tela Livro");
-            stage.setScene(scene);
-            stage.show();
-            } catch (Exception e){
-                System.out.println(e.getMessage());
-            }  
-    }
-    @FXML
-    private void BtnCadastrarExemplar_Click(ActionEvent event) {
-        try{
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/Exemplar.fxml"));
-            
-            Scene scene = new Scene(root);
-            scene.getStylesheets().add("/styles/Styles.css");
-            scene.getRoot().setStyle("-fx-font-family: 'serif'");
-    
-            Stage stage = new Stage();
-            stage.setTitle("Tela Exemplar");
+            stage.setTitle("Tela Emprestimo");
             stage.setScene(scene);
             stage.show();
             } catch (Exception e){
@@ -67,6 +66,23 @@ public class TelaBibliotecarioController implements Initializable {
             }  
     }
 
+    @FXML
+    private void BtnDevolucao_Click(ActionEvent event) {
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/Emprestimo.fxml"));
+            
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("/styles/Styles.css");
+            scene.getRoot().setStyle("-fx-font-family: 'serif'");
+    
+            Stage stage = new Stage();
+            stage.setTitle("Tela Emprestimo");
+            stage.setScene(scene);
+            stage.show();
+            } catch (Exception e){
+                System.out.println(e.getMessage());
+            }  
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

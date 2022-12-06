@@ -108,7 +108,8 @@ public class ExemplarController implements Initializable {
     private void preencherTabela(){
         List<Exemplar> exemplares = dao.buscarTodos();
         ObservableList<Exemplar> data = FXCollections.observableArrayList(exemplares);
-        tabelaExemplar.setItems(data);   
+        tabelaExemplar.setItems(data);
+        tabelaExemplar.refresh();   
     }
 
     private void preencherCombo(){

@@ -21,7 +21,7 @@
       <Button fx:id="BtnAlterar" layoutX="550.0" layoutY="452.0" mnemonicParsing="false" onAction="#alterar_click" text="Alterar" />
       <Button fx:id="BtnExcluir" layoutX="680.0" layoutY="452.0" mnemonicParsing="false" onAction="#excluir_click" text="Excluir" />
       <ComboBox fx:id="cboxAutor" disable="true" layoutX="115.0" layoutY="129.0" prefWidth="150.0" />
-      <TableView fx:id="tabelaLivro" layoutX="22.0" layoutY="223.0" onKeyPressed="#tabelaLivro_KeyPressed" onMouseClicked="#tabelaLivro_MouseClicked" prefHeight="254.0" prefWidth="336.0">
+      <TableView fx:id="tabelaLivro" layoutX="22.0" layoutY="223.0" onKeyPressed="#tabelaLivro_KeyPressed" onMouseClicked="#tabelaLivro_MouseClicked" prefHeight="254.0" prefWidth="384.0">
         <columns>
           <TableColumn fx:id="colID" prefWidth="47.0" text="ID" />
           <TableColumn fx:id="colTitulo" prefWidth="140.0" text="Titulo" />

@@ -28,7 +28,7 @@ public class Aluno extends Leitor {
 
     @Override
     public String toString() {
-        return  (this.getNome() +"    "+this.matricula);
+        return  this.getNome();
     }
 
 }

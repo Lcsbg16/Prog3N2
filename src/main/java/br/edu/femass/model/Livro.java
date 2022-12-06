@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 public class Livro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    protected Long id;
 
     private String titulo;
     private String ano;

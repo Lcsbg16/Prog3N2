@@ -23,7 +23,7 @@ public class TelaInicialController implements Initializable {
         scene.getRoot().setStyle("-fx-font-family: 'serif'");
 
         Stage stage = new Stage();
-        stage.setTitle("Tela Inicial");
+        stage.setTitle("Tela Bibliotecario");
         stage.setScene(scene);
         stage.show();
         } catch (Exception e){
@@ -34,7 +34,20 @@ public class TelaInicialController implements Initializable {
 
     @FXML
     private void BtnAtendente_Click(ActionEvent event) {
-        
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/TelaAtendente.fxml"));
+            
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("/styles/Styles.css");
+            scene.getRoot().setStyle("-fx-font-family: 'serif'");
+    
+            Stage stage = new Stage();
+            stage.setTitle("Tela Atendente");
+            stage.setScene(scene);
+            stage.show();
+            } catch (Exception e){
+                System.out.println(e.getMessage());
+            }
     }
 
     @Override

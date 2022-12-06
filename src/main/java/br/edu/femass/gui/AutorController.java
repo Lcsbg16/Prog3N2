@@ -152,7 +152,8 @@ public class AutorController implements Initializable {
         List<Autor> autores = dao.buscarTodos();
 
         ObservableList<Autor> data = FXCollections.observableArrayList(autores);
-        tabelaAutor.setItems(data);   
+        tabelaAutor.setItems(data); 
+        tabelaAutor.refresh();  
     }
 
     @Override

@@ -52,8 +52,7 @@ public class Exemplar {
     }
 
     public String toString(){
-        //return (this.getId()+" Exemplar do livro  "+this.getLivro());
-        return ("Exemplar do livro  "+this.getLivro());
+        return (""+this.getLivro());
     }
 
 

@@ -77,7 +77,7 @@ public class LivroController implements Initializable {
     @FXML
     private void Gravar_Click(ActionEvent event) {
         livro.setTitulo(txtTitulo.getText());
-        livro.setAutor(lstAutor.getSelectionModel().getSelectedItem());
+        livro.setAutor(cboxAutor.getSelectionModel().getSelectedItem());
         livro.setAno(txtAno.getText());
         if (incluindo) {
             dao.inserir(livro);
@@ -180,7 +180,8 @@ public class LivroController implements Initializable {
     private void preencherTabela(){
         List<Livro> livros = dao.buscarTodos();
         ObservableList<Livro> data = FXCollections.observableArrayList(livros);
-        tabelaLivro.setItems(data);   
+        tabelaLivro.setItems(data); 
+        tabelaLivro.refresh();  
     }
 
     private void preencherLista(){

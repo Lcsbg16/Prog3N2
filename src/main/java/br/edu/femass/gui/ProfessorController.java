@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import br.edu.femass.dao.DaoProfessor;
+import br.edu.femass.model.Leitor;
 import br.edu.femass.model.Professor;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -50,7 +51,7 @@ public class ProfessorController implements Initializable {
     private TableColumn<Professor,String> colTelefone = new TableColumn<>();
 
     @FXML
-    private TableColumn<Professor,Integer> colPrazo = new TableColumn<>();
+    private TableColumn<Leitor,Integer> colPrazo = new TableColumn<>();
 
     @FXML
     private TableColumn<Professor,String> colDisciplina = new TableColumn<>();
@@ -157,7 +158,8 @@ public class ProfessorController implements Initializable {
     private void preencherTabela(){
         List<Professor> professores = dao.buscarTodos();
         ObservableList<Professor> data = FXCollections.observableArrayList(professores);
-        tabelaProfessor.setItems(data);   
+        tabelaProfessor.setItems(data);  
+        tabelaProfessor.refresh(); 
     }
 
     @Override
@@ -175,16 +177,12 @@ public class ProfessorController implements Initializable {
         );
 
         colTelefone.setCellValueFactory(
-            new PropertyValueFactory<Professor,String>("telefone")
+            new PropertyValueFactory<Professor,String>( "telefone")
         );  
         
         colPrazo.setCellValueFactory(
-            new PropertyValueFactory<Professor,Integer>("prazo")
+            new PropertyValueFactory<Leitor,Integer>("prazoMaximoDevolucao")
         );          
-
-        colPrazo.setCellValueFactory(
-            new PropertyValueFactory<Professor,Integer>("prazo")
-        );
 
         colDisciplina.setCellValueFactory(
             new PropertyValueFactory<Professor,String>("disciplina")
