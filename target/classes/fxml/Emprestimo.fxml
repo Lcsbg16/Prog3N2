@@ -28,5 +28,6 @@
       <Label layoutX="31.0" layoutY="31.0" text="Selecione um dos Alunos abaixo" />
       <Label layoutX="304.0" layoutY="31.0" text="Selecione um dos Professores abaixo" />
       <Button fx:id="BtnGravarProfessor" layoutX="336.0" layoutY="706.0" mnemonicParsing="false" onAction="#GravarEmprestimoProfessor_Click" prefHeight="25.0" prefWidth="180.0" text="Efetuar Emprestimo Professor" />
+      <Button layoutX="787.0" layoutY="706.0" mnemonicParsing="false" onAction="#Devolucao_Click" text="Realizar Devolução" />
    </children>
 </Pane>

@@ -91,6 +91,7 @@ public class AlunoController implements Initializable {
         }
 
         preencherLista();
+        preencherTabela();
         editar(false);
         
     }
@@ -100,7 +101,7 @@ public class AlunoController implements Initializable {
         editar(true);
         
         incluindo = true;
-
+        preencherTabela();
         aluno = new Aluno();
         txtNome.setText("");
         txtEndereco.setText("");

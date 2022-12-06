@@ -14,6 +14,6 @@
             <Font size="31.0" />
          </font>
       </Label>
-      <Button layoutX="130.0" layoutY="282.0" mnemonicParsing="false" onAction="#BtnCadastrarExemplar_Click" prefHeight="47.0" prefWidth="191.0" text="Cadastrar Exemplar" />
+      <Button layoutX="130.0" layoutY="282.0" mnemonicParsing="false" onAction="#BtnCadastrarExemplar_Click" prefHeight="47.0" prefWidth="191.0" text="Cadastrar Exemplares" />
    </children>
 </Pane>

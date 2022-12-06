@@ -91,6 +91,11 @@ public class EmprestimoController implements Initializable {
 
     private Professor professor;
 
+
+    @FXML
+    private void Devolucao_Click(ActionEvent event) {
+    }
+
     @FXML
     private void GravarEmprestimoAluno_Click(ActionEvent event) {
         exemplar = lstExemplar.getSelectionModel().getSelectedItem();
@@ -103,6 +108,8 @@ public class EmprestimoController implements Initializable {
         daoEmprestimo.inserir(emprestimo);
         preencherTabela();
     }
+
+
 
     @FXML
     private void GravarEmprestimoProfessor_Click(ActionEvent event) {
@@ -172,7 +179,6 @@ public class EmprestimoController implements Initializable {
         );
 
         emprestimo = new Emprestimo();
-
         preencherCombo();
         preencherLista();
         preencherTabela();
